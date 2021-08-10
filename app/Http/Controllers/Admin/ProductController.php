@@ -66,7 +66,7 @@ class ProductController extends Controller
             'name'=>'required',
             'summa'=>'required',
             'skidka'=>'required',
-            'image'=>'required|file|mimes:jpg,jpeg,bnp,png|max:2048'
+            'image'=>'nullable|file|mimes:jpg,jpeg,bnp,png|max:2048'
         ]);
 
         $data = [
