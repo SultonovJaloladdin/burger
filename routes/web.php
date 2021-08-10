@@ -14,4 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/categories', 'CategoriesController');
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('/', function() {
+        return redirect()->route('admin.categories.index');
+    });
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('contact', 'ContactController');
+    Route::resource('product', 'ProductController');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('notfound', ['as' => 'notfound', 'uses' => 'HomeController@pagenotfound']);
