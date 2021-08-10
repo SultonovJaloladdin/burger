@@ -47,7 +47,7 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li>
-                                <a href="" aria-expanded="true"><i class="ti-dashboard"></i><span>menu</span></a>
+                                <a href="#" aria-expanded="true"><i class="ti-dashboard"></i><span>menu</span></a>
                             </li>
                             <li>
                                 <a href="{{ route('admin.categories.index') }}" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Categories</span></a>
