@@ -37,6 +37,7 @@
                                             <th scope="col">summa</th>
                                             <th scope="col">skidka</th>
                                             <th scope="col">text</th>
+                                            <th scope="col">status</th>
                                             <th scope="col">image</th>
                                         </tr>
                                     </thead>
@@ -48,6 +49,7 @@
                                             <td>{{ $item->summa }}</td>
                                             <td>{{ $item->skidka }}</td>  
                                             <td>{{ $item->desc }}</td>  
+                                            <td>{{ $item->status }}</td>  
                                             <td><img src="{{'/storage/'.$item->image }}" height="50px" width="50px"/></td>                                            <td>
                                                 <form action="{{ route('admin.product.destroy',$item->id) }}" method="POST">
                                                     <ul class="d-flex justify-content-center">

@@ -21,8 +21,10 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+    //    dd($request->all());
         request()->validate([
             'name'=>'required',
+            'status'=>'boolean',
             'category_id'=>'required',
             'name'=>'required',
             'summa'=>'required',
@@ -34,6 +36,7 @@ class ProductController extends Controller
         
         $data = [
             'name' => $request->name,
+            'status' => $request->status ?? false,
             'category_id' => $request->category_id,
             'name' => $request->name,
             'summa' => $request->summa,
@@ -62,6 +65,7 @@ class ProductController extends Controller
     {
          request()->validate([
             'name'=>'required',
+            'status'=>'required',
             'category_id'=>'required',
             'name'=>'required',
             'summa'=>'required',
@@ -71,6 +75,7 @@ class ProductController extends Controller
 
         $data = [
             'name' => $request->name,
+            'status' => $request->status,
             'category_id' => $request->category_id,
             'name' => $request->name,
             'summa' => $request->summa,

@@ -44,7 +44,6 @@
                     <label for="example-text-input" class="col-form-label">Text</label>
                     <input class="form-control" type="text" name="desc">
                 </div>
-                
                 <div class="form-group">
                     <label class="col-form-label">Tanlang</label>
                     <select name="category_id" required class="form-control">
@@ -53,6 +52,11 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="status" checked>
+                    <label class="form-check-label" for="exampleCheck1">active</label>
+                </div>
+                <br>
                 <div class="form-group">
                     <label for="">Rasm</label>
                     <input  class="form-control-file" type="file" name="image">

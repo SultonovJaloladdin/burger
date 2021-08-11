@@ -18,6 +18,6 @@ class CategorySeeder extends Seeder
             'image' => 'path/to/image'
         ]);
 
-        factory(Categories::class, 20)->create();
+        factory(Categories::class, 5)->create();
     }
 }

@@ -127,7 +127,7 @@
                                         @foreach ($gets as $item)
                                         <tbody>
                                             <tr>
-                                                <th scope="row">{{ $item->id }}</th>
+                                                <th scope="row">{{ (isset($i))?++$i:($i = 1) }}</th>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->desc }}</td>  
                                                 <td><img src="{{'/storage/'.$item->image }}" height="50px" width="50px"/></td>

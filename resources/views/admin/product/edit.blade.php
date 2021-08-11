@@ -46,6 +46,11 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="status" checked>
+                    <label class="form-check-label" for="exampleCheck1">active</label>
+                </div>
+                <br>
                 <div class="form-group">
                     <div class="col-md-8">
                         <label for="">Rasm</label>

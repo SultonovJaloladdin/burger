@@ -17,10 +17,11 @@ class CreateProductTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('category_id');
             $table->string('name');
+            $table->boolean('status')->default(true);
             $table->string('summa');
             $table->string('skidka');
-            $table->string('desc');
             $table->string('image');
+            $table->string('desc');
             $table->timestamps();
         });
 
