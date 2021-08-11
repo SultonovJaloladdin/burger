@@ -14,13 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin', function () {
-    return view('admin.menu');
-});
+// Route::get('admin/menu', function () {
+//     return view('admin.menu');
+// });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', function() {
-        return redirect()->route('admin.categories.index');
+        return view('admin.index');
+        //return redirect()->route('admin.menu');
     });
     Route::resource('categories', 'CategoriesController');
     Route::resource('contact', 'ContactController');
