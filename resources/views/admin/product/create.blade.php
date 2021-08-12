@@ -53,7 +53,7 @@
                     </select>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="status" checked>
+                    <input type="checkbox" value="1" class="form-check-input" name="status" checked>
                     <label class="form-check-label" for="exampleCheck1">active</label>
                 </div>
                 <br>

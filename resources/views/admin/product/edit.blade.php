@@ -47,7 +47,9 @@
                     </select>
                 </div>
                 <div class="form-check">
-                    <input value="{{ $product->status }}" type="checkbox" class="form-check-input" name="status" checked>
+                    <input value="1" type="checkbox" class="form-check-input" name="status" @if ($product->status)
+                        checked
+                    @endif>
                     <label class="form-check-label" for="exampleCheck1">active</label>
                 </div>
                 <br>
