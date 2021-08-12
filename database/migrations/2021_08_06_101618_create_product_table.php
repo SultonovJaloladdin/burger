@@ -19,9 +19,9 @@ class CreateProductTable extends Migration
             $table->string('name');
             $table->boolean('status')->default(true);
             $table->string('summa');
-            $table->string('skidka');
-            $table->string('image');
-            $table->string('desc');
+            $table->string('skidka')->nullable();
+            $table->string('image')->nullable();
+            $table->string('desc')->nullable();
             $table->timestamps();
         });
 

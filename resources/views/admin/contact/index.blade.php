@@ -14,82 +14,12 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <div class="search-box pull-left">
-                        <form action="#">
-                            <input type="text" name="search" placeholder="Search..." required>
-                            <i class="ti-search"></i>
-                        </form>
-                    </div>
-                </div>
-                <!-- profile info & task notification -->
-                <div class="col-md-6 col-sm-4 clearfix">
-                    <ul class="notification-area pull-right">
-                        <li id="full-view"><i class="ti-fullscreen"></i></li>
-                        <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
-                        
-                    </ul>
                 </div>
             </div>
         </div>
         <!-- header area end -->
-        <!-- page title area start -->
-        <div class="page-title-area">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                    <div class="breadcrumbs-area clearfix">
-                        <ul class="breadcrumbs pull-left">
-                            <li><a href="#">Home</a></li>
-                            <li><span>Categories Table</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- page title area end -->
         <div class="main-content-inner">
             <div class="row">
-                <!-- Progress Table start -->
-                {{-- <div class="col-12 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="pull-right">
-                                <a class="btn btn-primary" href="{{ route('admin.contact.create') }}"> Yangi Categoriya qo'shish</a>
-                            </div>
-                            <div class="single-table">
-                                <div class="table-responsive">
-                                    <table class="table table-hover progress-table text-center">
-                                        <thead class="text-uppercase">
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">nomi</th>
-                                                <th scope="col">text</th>
-                                                <th scope="col">image</th>
-                                                <th scope="col">status</th>
-                                            </tr>
-                                        </thead>
-                                        @foreach ($gets as $item)
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">{{ $item->id }}</th>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->phone }}</td>  
-                                                <td><img src="{{ $item->phone_2 }}" ></td>
-                                                <td>
-
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {!! $gets->links() !!}
-                </div> --}}
-                <!-- Progress Table end -->
                 <!-- Live Crypto Price area start -->
                 <div class="col-lg-12">
                     <div class="card">

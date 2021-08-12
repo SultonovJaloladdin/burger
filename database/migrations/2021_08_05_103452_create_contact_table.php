@@ -16,13 +16,13 @@ class CreateContactTable extends Migration
         Schema::create('contact', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('phone');
-            $table->integer('phone_2');
-            $table->string('instagram');
-            $table->string('facebook');
-            $table->string('telegram');
-            $table->string('tiktok');
-            $table->string('adress');
+            $table->string('phone', 15);
+            $table->string('phone_2', 15)->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('adress')->nullable();
             $table->timestamps();
         });
     }
