@@ -77,6 +77,7 @@ class CategoriesController extends Controller
 
     public function destroy(Categories $category)
     {
+        $category->products()->delete();
         $category->delete();
 
         return redirect()->route('admin.categories.index')
