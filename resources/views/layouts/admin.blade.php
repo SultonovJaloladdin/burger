@@ -59,7 +59,7 @@
                                 <a href="{{ route('admin.contact.index')}}" aria-expanded="true"><i class="fa fa-cog"></i><span>Настройки</span></a>
                             </li>
                             <li>
-                                <a href="#" aria-expanded="true"><i class="fa fa-power-off"></i><span>Выход</span></a>
+                                <a href="#" onclick="$('#logout-form').submit()" aria-expanded="true"><i class="fa fa-power-off"></i><span>Выход</span></a>
                             </li>
                     </nav>
                 </div>
@@ -90,6 +90,10 @@
     <!-- others plugins -->
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/scripts.js"></script>
+    
+    <form id="logout-form" method="POST" action="{{ route('logout') }}">
+        @csrf
+    </form>
 </body>
 
 </html>
