@@ -38,9 +38,12 @@
                                             <td>{{ $item->desc }}</td>  
                                             <td><img src="{{'/storage/'.$item->image }}" height="50px" width="50px"/></td>                                            
                                             <td>
-                                                 <a href="#" type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                                                 <a href="{{ route('admin.categories.edit',$item->id) }}" type="button" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
-                                            
+                                                <form method="POST" action="{{route('admin.categories.destroy', $item->id)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{ route('admin.categories.edit',$item->id) }}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
+                                                    <button onclick="if (!confirm('Вы уверены?')) return false" type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
 
