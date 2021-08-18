@@ -39,7 +39,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><h4>Garage Burger</h4></a>
+                    <a href="index.html"><h6>Garage Burger</h6></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -47,15 +47,19 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li>
-                                <a href="{{ route('admin.') }}" aria-expanded="true"><i class="ti-dashboard"></i><span>menu</span></a>
+                                <a href="{{ route('admin.') }}" aria-expanded="true"><i class="fa fa-pie-chart"></i><span>Дашбоард</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.categories.index') }}" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Categories</span></a>
+                                <a href="{{ route('admin.product.index') }}" aria-expanded="true"><i class="fa fa-th"></i><span>Продукты</span></a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.product.index') }}" aria-expanded="true"><i class="ti-pie-chart"></i><span>product</span></a>
+                                <a href="{{ route('admin.categories.index') }}" aria-expanded="true"><i class="fa fa-th-large"></i><span>Категории</span></a>
+                            </li>
                             <li>
-                                <a href="{{ route('admin.contact.index')}}" aria-expanded="true"><i class="fa fa-envelope"></i><span>settings</span></a>
+                                <a href="{{ route('admin.contact.index')}}" aria-expanded="true"><i class="fa fa-cog"></i><span>Настройки</span></a>
+                            </li>
+                            <li>
+                                <a href="#" aria-expanded="true"><i class="fa fa-power-off"></i><span>Выход</span></a>
                             </li>
                     </nav>
                 </div>

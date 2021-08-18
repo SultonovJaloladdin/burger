@@ -78,12 +78,11 @@
                 <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     @csrf
                     <div class="login-form-head">
-                        <h4>TIZIMGA KIRISH</h4>
-                        <p>Salom, tizimga kiring va administrator shablonini boshqarishni boshlang</p>
+                        <h4>Войдите в систему</h4>
                     </div>
                     <div class="login-form-body">
                         <div class="form-gp">
-                            <label for="exampleInputEmail1">{{ __('E-Mail Address') }}</label>
+                            <label for="exampleInputEmail1">{{ __('Логин') }}</label>
                             <input type="email" id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required autofocus>
                             @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -94,7 +93,7 @@
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
-                            <label for="exampleInputPassword1">Password</label>
+                            <label for="exampleInputPassword1">Пароль</label>
                             <input type="password" id="exampleInputPassword1" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
                             @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -106,11 +105,11 @@
                         </div>
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit"><i class="ti-arrow-right"></i>
-                                {{ __('Login') }}
+                                {{ __('Войти') }}
                             </button> 
                         </div>
                         <div class="form-footer text-center mt-5">
-                            <p class="text-muted"><a href="{{route('admin.categories.index')}}">Bosh sahifaga qaytish</a></p>
+                            <p class="text-muted"><a href="{{route('admin.categories.index')}}">Войдите в систему</a></p>
                         </div>
                     </div>
                 </form>
