@@ -28,7 +28,7 @@ class ProductController extends Controller
             'category_id'=>'required',
             'name'=>'required',
             'summa'=>'required',
-            'skidka'=>'required',
+            'skidka'=>'nullable',
             'image'=>'required|file|mimes:jpg,jpeg,bnp,png|max:2048'
         ]);
          //Upload image to  store

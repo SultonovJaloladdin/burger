@@ -39,7 +39,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><h6>Garage Burger</h6></a>
+                    <a href="{{ route('admin.') }}"><h6>Garage Burger</h6></a>
                 </div>
             </div>
             <div class="main-menu">
