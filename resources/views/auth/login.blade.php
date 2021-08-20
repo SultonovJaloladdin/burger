@@ -82,35 +82,35 @@
                     </div>
                     <div class="login-form-body">
                         <div class="form-gp">
-                            <label for="exampleInputEmail1">{{ __('Логин') }}</label>
+                            <label for="exampleInputEmail1">Логин</label>
+                            <i class="ti-email"></i>
                             <input type="email" id="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required autofocus>
                             @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
-                            <i class="ti-email"></i>
+                            
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Пароль</label>
+                            <i class="ti-lock"></i>
                             <input type="password" id="exampleInputPassword1" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
                             @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            <i class="ti-lock"></i>
+                            
                             <div class="text-danger"></div>
                         </div>
                         <div class="submit-btn-area">
                             <button id="form_submit" type="submit"><i class="ti-arrow-right"></i>
-                                {{ __('Войти') }}
+                                Войти
                             </button> 
                         </div>
-                        <div class="form-footer text-center mt-5">
-                            <p class="text-muted"><a href="{{route('admin.categories.index')}}">Войдите в систему</a></p>
-                        </div>
+                       
                     </div>
                 </form>
             </div>
