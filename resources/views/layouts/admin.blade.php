@@ -59,6 +59,12 @@
                                 <a href="{{ route('admin.contact.index')}}" aria-expanded="true"><i class="fa fa-cog"></i><span>Настройки</span></a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.help')}}" aria-expanded="true"><i class="fa fa-life-ring"></i><span>Поддержка</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.about_us')}}" aria-expanded="true"><i class="fa fa-info-circle"></i><span>О нас</span></a>
+                            </li>
+                            <li>
                                 <a href="#" onclick="$('#logout-form').submit()" aria-expanded="true"><i class="fa fa-power-off"></i><span>Выход</span></a>
                             </li>
                     </nav>
