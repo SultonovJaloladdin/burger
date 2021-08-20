@@ -10,7 +10,7 @@
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{ route('admin.product.create') }}"> <i class="fa fa-plus"></i> Добавить</a>
                 </div>
-                 <div class="nav-btn pull-left">
+                <div class="nav-btn pull-left">
                     <span></span>
                     <span></span>
                     <span></span>
