@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SiteController@home');
+
+Route::get('datacategory/{id}', 'SiteController@category');
+Route::get('categories', 'SiteController@home');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', function() {
