@@ -1,0 +1,14 @@
+.card-style-m {
+    
+    overflow:visible;
+    margin:0 15px 30px;
+    border-radius:20px;
+    border:none;
+    box-shadow:0 4px 24px 0 rgba(0,0,0,.1);
+    
+    width: inherit;
+    height: 180px;
+    /* outline:none !important; */
+    
+
+}
