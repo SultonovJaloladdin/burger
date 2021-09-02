@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Categories;
 use App\Product;
+use App\Contact;
 
 use Illuminate\Http\Request;
 
@@ -13,8 +14,10 @@ class SiteController extends Controller
         $category = Categories::orderBy('id', 'desc')->get();
         
         $all_products = Product::inRandomOrder()->limit(5)->get();
+
+        $settings = Contact::orderBy('id','desc')->get();
         
-        return view('index', compact('category', 'all_products'));
+        return view('index', compact('category', 'all_products', 'settings'));
     }
     
     public function category($id)

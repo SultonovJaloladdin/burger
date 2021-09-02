@@ -31,7 +31,8 @@
     <div class="double-slider owl-carousel owl-no-dots mb-4">
         @foreach ($category as $item)
         <a href="#" class="getproduct" data-id="{{ $item->id }}"> {{-- pitsa.html --}}
-            <div class="card m-0 card-style pitsa" data-card-height="120">
+            <div class="card m-0 card-style" data-card-height="120" background-image: {{ asset($item->image) }}>
+                <img src="{{ '/storage/'.$item->image }}" alt="image">
                 <div class="card-center">
                     <h3 class="color-white font-800 pl-3">{{ $item->name }}</h3>
                 </div>
@@ -45,8 +46,9 @@
     <div id="menu-content">
         @foreach($all_products as $product)
         <div class="card card-style burger" data-card-height="180">
+            <img src="{{ '/storage/'.$product->image }}" alt="image">
             <div class="card-top">
-                <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">Скидка</a>
+                <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">{{ $product->skidka }}</a>
                 <a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>
             </div>
             <div class="card-bottom mb-3 ml-3 mr-3">
@@ -137,34 +139,36 @@
     </div>
     <div class="divider divider-margins mt-3 mb-0"></div>
     <div class="content mt-0">
+        @foreach ($settings as $item)
         <div class="list-group list-custom-small list-icon-0">
-           <a href="https://www.instagram.com/garageburgerr/" class="shareToInstagram">
+           <a href="{{ $item->instagram }}" class="shareToInstagram">
                 <i class="fab fa-instagram font-12 bg-instagram color-white shadow-l rounded-s"></i>
                 <span>Instagram</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
             
-            <a href="https://t.me/garageburger_bot" class="shareToTelegram">
+            <a href="{{ $item->telegram }}" class="shareToTelegram">
                 <i class="fab fa-telegram font-12 bg-twitter color-white shadow-l rounded-s"></i>
                 <span>Telegram Bot</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-       <a href="https://www.facebook.com/Garage-Burger-107852080895441/" class="">
+            <a href="{{ $item->facebook }}" class="">
                 <i class="fab fa-facebook-f font-12 bg-facebook color-white shadow-l rounded-s"></i>
                 <span>Facebook</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="tel:+998975159999" class="">
+            <a href="{{ $item->phone }}" class="">
                 <i class="fa fa-phone font-12 bg-whatsapp color-white shadow-l rounded-s"></i>
                 <span>Звонить на Call center</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="#" class="shareToEmail border-0">
+            <a href="{{ $item->adress }}" class="shareToEmail border-0">
                 <i class="fa fa-map-marker font-12 bg-mail color-white shadow-l rounded-s"></i>
                 <span>Наш адрес</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
         </div>
+        @endforeach
     </div>
 </div>
 
@@ -272,8 +276,9 @@
               $("#menu-content").html('');
                for (var item of data){
                var html = '<div class="card card-style-m burger" data-card-height="180">'; 
+                html +='<img src="{{ '/storage/'.$product->image }}" alt="image">';
                 html +='<div class="card-top">';
-                html +='<a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">Скидка</a>';
+                html += item.skidka ? '<a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">' + item.skidka + '</a>' : '';
                 html +='<a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>';
                 html +='</div>';
                 html +='<div class="card-bottom mb-3 ml-3 mr-3">';
