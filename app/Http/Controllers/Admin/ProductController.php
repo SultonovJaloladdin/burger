@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Admin\Image;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $product = Product::latest()->paginate(5);
+        $product = Product::latest()->paginate(10);
 
         return view('admin.product.index', compact('product'));
     }
@@ -33,7 +34,14 @@ class ProductController extends Controller
         ]);
          //Upload image to  store
         $img_name = $request->file('image')->store('product',['disk'=>'public']);
-        
+        // //Create thumbnail
+        // $full_path = storage_path('app/public/'.$img_name);
+        // $full_path_thumb = storage_path('app/public/thumbs/'.$img_name);
+        // $thumb = Image::make($full_path);
+        // //Proporsiyani to'g'irlash
+        // $thumb->fit(290, 290, function($constraint) {
+        //     $constraint->aspectRatio();
+        // })->save($full_path_thumb);
         $data = [
             'name' => $request->name,
             'status' => $request->status ?? false,
@@ -42,7 +50,8 @@ class ProductController extends Controller
             'summa' => $request->summa,
             'skidka' => $request->skidka,
             'desc' => $request->desc,
-            'image' => $img_name
+            'image' => $img_name,
+          //  'thumb' => 'thumbs/'.$img_name,
         ];
 
         Product::create($data);
@@ -69,7 +78,7 @@ class ProductController extends Controller
             'category_id'=>'required',
             'name'=>'required',
             'summa'=>'required',
-            'skidka'=>'required',
+            'skidka'=>'nullable',
             'image'=>'nullable|file|mimes:jpg,jpeg,bnp,png|max:2048'
         ]);
 

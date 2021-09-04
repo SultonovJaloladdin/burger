@@ -1,9 +1,8 @@
 @extends('layouts.home')
 
-@section('content') 
-{{$data = ""}}
+@section('content')
 <div class="header header-auto-show header-fixed header-logo-center">
-    <a href="#" class="header-title">Garage Burger</a>
+    <a href="#l" class="header-title">Garage Burger</a>
     <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
     <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
     <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
@@ -30,9 +29,8 @@
 <div class="page-content">
     <div class="double-slider owl-carousel owl-no-dots mb-4">
         @foreach ($category as $item)
-        <a href="#" class="getproduct" data-id="{{ $item->id }}"> {{-- pitsa.html --}}
-            <div class="card m-0 card-style" data-card-height="120" background-image: {{ asset($item->image) }}>
-                <img src="{{ '/storage/'.$item->image }}" alt="image">
+        <a href="#" onclick="menuChange({{ $item->id }})">
+            <div class="card m-0 card-style burger" data-card-height="120" style="background-image: url({{ '/storage/'.$item->image }});">
                 <div class="card-center">
                     <h3 class="color-white font-800 pl-3">{{ $item->name }}</h3>
                 </div>
@@ -40,26 +38,27 @@
             </div>
         </a>
         @endforeach
+    
     </div>
     
     <!--MENU-->
-    <div id="menu-content">
-        @foreach($all_products as $product)
-        <div class="card card-style burger" data-card-height="180">
-            <img src="{{ '/storage/'.$product->image }}" alt="image">
+    <div>
+        @foreach ($all_products as $item)
+        <div class="card card-style hidden menuClass menuId{{ $item->category_id }}" data-card-height="180" style="background-image: url({{ '/storage/'.$item->image }});">
             <div class="card-top">
-                <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">{{ $product->skidka }}</a>
+                <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">{{ $item->skidka }}</a>
                 <a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>
             </div>
             <div class="card-bottom mb-3 ml-3 mr-3">
-                <h2 class="color-white font-800 mb-1">{{ $product->name }}</h2>
-                <p class="color-white font-14 mb-1 opacity-60">{{$product->summa}}</p>
+                <h2 class="color-white font-800 mb-1">{{ $item->name }}</h2>
+                <p class="color-white font-14 mb-1 opacity-60">
+                    Цена: {{ $item->summa }}
+                </p>
             </div>
             <div class="card-overlay bg-black opacity-60"></div>
         </div>
         @endforeach
-    </div>
-
+    </div>            
 </div>
 
 <div id="menu-main" class="menu menu-box-left rounded-0" data-menu-width="280" data-menu-active="nav-welcome">
@@ -139,36 +138,34 @@
     </div>
     <div class="divider divider-margins mt-3 mb-0"></div>
     <div class="content mt-0">
-        @foreach ($settings as $item)
         <div class="list-group list-custom-small list-icon-0">
-           <a href="{{ $item->instagram }}" class="shareToInstagram">
+           <a href="https://www.instagram.com/garageburgerr/" class="shareToInstagram">
                 <i class="fab fa-instagram font-12 bg-instagram color-white shadow-l rounded-s"></i>
                 <span>Instagram</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
             
-            <a href="{{ $item->telegram }}" class="shareToTelegram">
+            <a href="https://t.me/garageburger_bot" class="shareToTelegram">
                 <i class="fab fa-telegram font-12 bg-twitter color-white shadow-l rounded-s"></i>
                 <span>Telegram Bot</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="{{ $item->facebook }}" class="">
+       <a href="https://www.facebook.com/Garage-Burger-107852080895441/" class="">
                 <i class="fab fa-facebook-f font-12 bg-facebook color-white shadow-l rounded-s"></i>
                 <span>Facebook</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="{{ $item->phone }}" class="">
+            <a href="tel:+998975159999" class="">
                 <i class="fa fa-phone font-12 bg-whatsapp color-white shadow-l rounded-s"></i>
                 <span>Звонить на Call center</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="{{ $item->adress }}" class="shareToEmail border-0">
+            <a href="page-places.html" class="shareToEmail border-0">
                 <i class="fa fa-map-marker font-12 bg-mail color-white shadow-l rounded-s"></i>
                 <span>Наш адрес</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
         </div>
-        @endforeach
     </div>
 </div>
 
@@ -257,64 +254,23 @@
         <a href="#" class="pwa-dismiss close-menu btn-full mt-3 text-center text-uppercase font-900 color-red-light opacity-90 font-110">Maybe later</a>
     </div>
 </div>
+
 @endsection
-{{-- classjquery INSIDE OF SIDE--}}
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-   <script type="text/javascript"> 
-       $(function(){ 
-         $(".getproduct").on('click', function(){ 
-             console.log($(this).data('id'))
-         $.ajax({ 
-           method: "GET",       
-           url: "/datacategory/"+$(this).data('id'),  
-           dataType: 'json',
-             
-           success: function(data){
-               console.log(data);
-               
-              $("#menu-content").html('');
-               for (var item of data){
-               var html = '<div class="card card-style-m burger" data-card-height="180">'; 
-                html +='<img src="{{ '/storage/'.$product->image }}" alt="image">';
-                html +='<div class="card-top">';
-                html += item.skidka ? '<a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">' + item.skidka + '</a>' : '';
-                html +='<a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>';
-                html +='</div>';
-                html +='<div class="card-bottom mb-3 ml-3 mr-3">';
-                html +='<h2 class="color-white font-800 mb-1">' + item.name + '</h2>';
-                html +='<p class="color-white font-14 mb-1 opacity-60">' + item.summa + '</p>';
-                html +='</div>';   
-                html +='<div class="card-overlay bg-black opacity-60"></div>';  
-                html +='</div>';
-            
-                $("#menu-content").append(html);
-            }
-                
-
-        //         @if($data)
-        // @foreach ($data as $item)
-        //     <div class="card card-style burger" data-card-height="180">
-        //         <div class="card-top">
-        //             <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">Скидка</a>
-        //             <a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>
-        //         </div>
-        //         <div class="card-bottom mb-3 ml-3 mr-3">
-        //             <h2 class="color-white font-800 mb-1">{{ $item->name }}</h2>
-        //             <p class="color-white font-14 mb-1 opacity-60">
-        //                 {{$item->summa}}
-        //             </p>
-        //         </div>
-        //         <div class="card-overlay bg-black opacity-60"></div>
-        //     </div>
-        // @endforeach
-        // @endif
-                    
-
-
-            } 
-         });
-       }); 
-   }); 
-   </script> 
-   
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        //alert(id);
+        $('.double-slider a:first-child').click(); 
+    });
+     
+    function menuChange(id){
+       //alert(id);
+       $(".menuClass").addClass("hidden");
+       
+       $(".menuId"+id).removeClass("hidden");
+       
+    }
+    
+ </script>
+@endpush

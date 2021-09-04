@@ -9,6 +9,13 @@
     width: inherit;
     height: 180px;
     /* outline:none !important; */
-    
-
 }
+
+.style-img{
+    width: inherit;
+}
+     
+.hidden{
+display: none !important;
+}
+     

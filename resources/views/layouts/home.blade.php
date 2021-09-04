@@ -22,4 +22,5 @@
 	<script type="text/javascript" src="/frontend/scripts/jquery.js"></script>
 	<script type="text/javascript" src="/frontend/scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/frontend/scripts/custom.js"></script>
+	@stack('scripts')
 </body>
