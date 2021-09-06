@@ -2,11 +2,13 @@
 
 @section('content')
 <div class="header header-auto-show header-fixed header-logo-center">
-    <a href="#l" class="header-title">Garage Burger</a>
+    @foreach ($settings as $item)
+    <a href="#" class="header-title">{{$item->name}}</a>
     <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
     <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
     <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
     <a href="#" data-menu="menu-share" class="header-icon header-icon-3"><i class="fas fa-share-alt"></i></a>
+    @endforeach
 </div>
 
 <div id="footer-bar" class="footer-bar-6">
@@ -18,11 +20,13 @@
 </div>
 
 <div class="page-title page-title-fixed">
-    <h3 class="ml-3 mr-auto mt-2">Garage Burger</h3>
+    @foreach ($settings as $item)
+    <h3 class="ml-3 mr-auto mt-2">{{$item->name}}</h3>
     <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-share"><i class="fa fa-share-alt"></i></a>
     <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i></a>
     <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
     <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
+    @endforeach
 </div>
 <div class="page-title-clear"></div>
 
@@ -46,7 +50,9 @@
         @foreach ($all_products as $item)
         <div class="card card-style hidden menuClass menuId{{ $item->category_id }}" data-card-height="180" style="background-image: url({{ '/storage/'.$item->image }});">
             <div class="card-top">
+                @if(isset($item->skidka))
                 <a href="#" class="bg-white  rounded-sm btn btn-xs float-right font-700 font-12 mt-3 mr-3 color-red-dark">{{ $item->skidka }}</a>
+                @endif
                 <a href="#" data-menu="menu-heart" class="icon icon-s bg-white color-red-dark rounded-xl mt-3 ml-3 float-left"><i class="fa fa-heart"></i></a>
             </div>
             <div class="card-bottom mb-3 ml-3 mr-3">
@@ -67,8 +73,10 @@
             <a href="#" class="close-menu float-right mr-2 text-center mt-3 icon-40 notch-clear"><i class="fa fa-times color-white"></i></a>
         </div>
         <div class="card-bottom">
-            <h2 class="color-white pl-3 mb-1 font-28">Гараж Бургер</h2>
+            @foreach ($settings as $item)
+            <h2 class="color-white pl-3 mb-1 font-28">{{ $item->name }}</h2>
             <p class="mb-2 pl-3 font-12 color-white opacity-50">Доставка бургеров 24 часа</p>
+            @endforeach
         </div>
         <div class="card-overlay bg-gradient"></div>
     </div>
@@ -138,34 +146,38 @@
     </div>
     <div class="divider divider-margins mt-3 mb-0"></div>
     <div class="content mt-0">
+        @foreach ($settings as $item)
+
         <div class="list-group list-custom-small list-icon-0">
-           <a href="https://www.instagram.com/garageburgerr/" class="shareToInstagram">
+            <a href="{{ $item->instagram }}" class="shareToInstagram">
                 <i class="fab fa-instagram font-12 bg-instagram color-white shadow-l rounded-s"></i>
                 <span>Instagram</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
             
-            <a href="https://t.me/garageburger_bot" class="shareToTelegram">
+            <a href="{{ $item->telegram }}" class="shareToTelegram">
                 <i class="fab fa-telegram font-12 bg-twitter color-white shadow-l rounded-s"></i>
                 <span>Telegram Bot</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-       <a href="https://www.facebook.com/Garage-Burger-107852080895441/" class="">
+       <a href="{{ $item->facebook }}" class="">
                 <i class="fab fa-facebook-f font-12 bg-facebook color-white shadow-l rounded-s"></i>
                 <span>Facebook</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="tel:+998975159999" class="">
+            <a href="{{ $item->phone }}" class="">
                 <i class="fa fa-phone font-12 bg-whatsapp color-white shadow-l rounded-s"></i>
                 <span>Звонить на Call center</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
-            <a href="page-places.html" class="shareToEmail border-0">
+            <a href="#" class="shareToEmail border-0">
                 <i class="fa fa-map-marker font-12 bg-mail color-white shadow-l rounded-s"></i>
                 <span>Наш адрес</span>
                 <i class="fa fa-angle-right pr-1"></i>
             </a>
         </div>
+
+        @endforeach
     </div>
 </div>
 

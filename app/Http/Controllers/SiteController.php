@@ -13,7 +13,7 @@ class SiteController extends Controller
     {
         $category = Categories::orderBy('id', 'desc')->get();
         
-        $all_products = Product::inRandomOrder()->limit(5)->get();
+        $all_products = Product::orderBy('id','desc')->get();
 
         $settings = Contact::orderBy('id','desc')->get();
         
